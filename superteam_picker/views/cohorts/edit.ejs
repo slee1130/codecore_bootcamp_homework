@@ -1,0 +1,26 @@
+<%- include("./partials/header_nav") %>
+
+
+<form action="/cohorts/<%=cohort.id%>" method="POST">
+ <input type="hidden" name="_method" value="PATCH">
+    <div class="form-group">
+        <label for="exampleFormControlInput1">Logo Url</label>
+        <input type="logoUrl" class="form-control" id="exampleFormControlInput1"
+            value="<%=cohort.logoUrl%>">
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlInput1">Name</label>
+        <input type="text" name="name" class="form-control" id="exampleFormControlInput1" value="<%=cohort.name%>">
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlTextarea1">Members</label>
+        <textarea class="form-control" name="members" id="exampleFormControlTextarea1" rows="3">
+            <%= cohort.members %>
+</textarea>
+    </div>
+  <input class="btn btn-primary btn-outline-primary mt-3" type="submit" value="Edit">
+</form>
+
+
+
+<%- include("./partials/footer") %>
