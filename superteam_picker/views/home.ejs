@@ -1,7 +1,8 @@
-<%- include("./partials/header_nav") %>
+<%- include("./partials/header") %>
 
-<% for(let cohort of cohorts) { %>
-<div class="card" style="width: 18rem;">
+<% for(let cohort of data) { %>
+
+<div class="card my-3" style="width: 100%;">
     <div class="card-body">
         <h5 class="card-title"><img src="<%= cohort.logoUrl%>" alt="cohort_img" style="border-radius: 50%" width="50"
                 height="50"><%= cohort.name %></h5>
@@ -9,5 +10,6 @@
         <a href="/cohorts/<%= cohort.id %>" class="btn btn-primary">Show Cohort</a>
     </div>
 </div>
+
 <%}%>
 <%- include("./partials/footer") %>

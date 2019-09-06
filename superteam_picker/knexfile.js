@@ -1,14 +1,12 @@
-// Update with your config settings.
-
 module.exports = {
 
   development: {
     client: 'pg',
     connection: {
-    database: 'superteam_picker'
+      database: 'team_picker'
     },
     migration: {
-      directory:'./db/migrations'
+      directory: './db/migrations'
     }
   }
 };

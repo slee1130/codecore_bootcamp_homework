@@ -1,0 +1,22 @@
+<%- include("./partials/header") %>
+
+<form action="/cohorts/new" method="POST">
+    <div class="form-group">
+        <label for="exampleFormControlInput1">Logo Url</label>
+        <input name="logoUrl" type="logoUrl" class="form-control" id="exampleFormControlInput1"
+            placeholder="e.g.https://www.example.come/some.png">
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlInput1">Name</label>
+        <input type="text" name="name" class="form-control" id="exampleFormControlInput1" placeholder="Flying Funks">
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlTextarea1">Members</label>
+        <textarea class="form-control" name="members" id="exampleFormControlTextarea1" rows="3"
+            placeholder="Jon Snow,Daenerys, Melisandre, Arya Stark">
+</textarea>
+    </div>
+    <input class="btn btn-primary mt-3" type="submit">
+</form>
+
+<%- include("./partials/footer") %>

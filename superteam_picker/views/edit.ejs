@@ -1,11 +1,11 @@
-<%- include("./partials/header_nav") %>
+<%- include("./partials/header") %>
 
 
 <form action="/cohorts/<%=cohort.id%>" method="POST">
- <input type="hidden" name="_method" value="PATCH">
+    <input type="hidden" name="_method" value="PATCH">
     <div class="form-group">
         <label for="exampleFormControlInput1">Logo Url</label>
-        <input type="logoUrl" class="form-control" id="exampleFormControlInput1"
+        <input name="logoUrl" type="logoUrl" class="form-control" id="exampleFormControlInput1"
             value="<%=cohort.logoUrl%>">
     </div>
     <div class="form-group">
@@ -18,7 +18,7 @@
             <%= cohort.members %>
 </textarea>
     </div>
-  <input class="btn btn-primary btn-outline-primary mt-3" type="submit" value="Edit">
+    <input class="btn btn-primary btn-outline-primary mt-3" type="submit" value="Edit">
 </form>
 
 
