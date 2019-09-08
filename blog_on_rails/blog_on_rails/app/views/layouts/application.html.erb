@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BlogOnRails</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  <%= flash[:notice] || flash[:alert]%>
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light d-flex flex-row justify-content-between">
+  <h3>Blog On Rails</h3>
+<div><%= link_to 'Home', root_path %>
+|
+<%= link_to 'New Post', new_post_path %>
+</div>
+</nav>
+<div class="mx-3">
+<%= yield %>
+</div>
+  </body>
+</html>

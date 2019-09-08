@@ -1,0 +1,15 @@
+<h3>All Posts</h3>
+<div class="d-flex flex-row justify-content-around flex-wrap">
+<% @posts.each do |post|%>
+<div class="card" style="width: 25rem; ">
+    <div class="card-body">
+        <h2><%= link_to post.title, post_path(post) %></h2>
+        <p><%=post.body%></p>
+    </div>
+</div>
+<%end%>
+</div>
+
+
+
+
