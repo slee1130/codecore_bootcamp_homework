@@ -1,0 +1,50 @@
+
+
+<h3><%= @post.title%></h3>
+<%= @post.body%>
+<br>
+<%= link_to 'Edit',:edit_post,class:"btn btn-outline-primary" %>
+<%= link_to 'Delete', post_path(@post), method: :delete, data: {confirm: "Are you deleting your post?"},class:"btn btn-outline-primary" %>
+
+
+<h3 class="mt-4">Leave your comments</h3>
+<div class="form">
+    <%if @comment.errors.any?%>
+        <ul>
+            <% @comment.errors.full_messages.each do |msg|%>
+            <li class="error-msg"><%=msg%></li>
+            <%end%>
+        </ul>
+        <%end%>
+    <%= form_with model: [@post, @comment], local: true do |f|%>
+        <div>
+        <%= f.label :body%>
+        <%= f.text_area :body, class:"form-control"%>
+        </div>
+        <%=f.submit "Submit", class:"btn btn-outline-primary"%>
+    <%end%>
+</div>
+
+<hr>
+<h3>Comments</h3>
+<% @comments.each do |comment| %>
+        <p style="font-weight: 900"><%=comment.body%>
+<br>
+        <small>
+            Commented <%=time_ago_in_words(comment.created_at)%>ago
+        </small>
+            |
+
+        <small>
+            <%= link_to(
+            "Delete",
+            post_comment_path(@post, comment),
+            method: :delete,
+            data: {
+                confirm: "Are you sure?"
+            }
+            )%>
+        </small>
+        </p>
+     <%end%>
+
