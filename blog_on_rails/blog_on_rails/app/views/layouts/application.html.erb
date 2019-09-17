@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BlogOnRails</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  <%= flash[:notice] || flash[:alert]%>
+
+
+<nav class="navbar navbar-light bg-light d-flex flex-row justify-content:space-between">
+  <h3>Blog On Rails</h3>
+<div class="">
+  <%= link_to 'Home', root_path %>
+|
+<%= link_to 'New Post', new_post_path %>
+|
+<% if user_signed_in? %>
+<span>Hello, <%=link_to "#{current_user.name}", edit_user_path(current_user)%>!
+</span>
+|
+<%= link_to 'Sign Out', session_path, method: :delete %>
+<% else %>
+<%= link_to 'Sign In', new_session_path %>
+|
+<%= link_to 'Sign Up', new_user_path %>
+<% end %>
+</div>
+</nav>
+<div class="mx-3">
+<%= yield %>
+</div>
+  </body>
+</html>
