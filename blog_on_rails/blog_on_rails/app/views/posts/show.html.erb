@@ -3,8 +3,10 @@
 <h3><%= @post.title%></h3>
 <%= @post.body%>
 <br>
+<%if can?(:crud, @post)%>
 <%= link_to 'Edit',:edit_post,class:"btn btn-outline-primary" %>
 <%= link_to 'Delete', post_path(@post), method: :delete, data: {confirm: "Are you deleting your post?"},class:"btn btn-outline-primary" %>
+<%end%>
 
 
 <h3 class="mt-4">Leave your comments</h3>
@@ -29,7 +31,8 @@
 <h3>Comments</h3>
 <% @comments.each do |comment| %>
         <p style="font-weight: 900"><%=comment.body%>
-<br>
+        <br>
+    <%if can? :crud, comment%>
         <small>
             Commented <%=time_ago_in_words(comment.created_at)%>ago
         </small>
@@ -45,6 +48,8 @@
             }
             )%>
         </small>
+        <%end%>
+        <hr/>
         </p>
      <%end%>
 
