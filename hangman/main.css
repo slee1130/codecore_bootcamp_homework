@@ -1,0 +1,25 @@
+/* .alphabet {
+    font-size: 2rem;
+} */
+
+h1{
+    text-align: center;
+    color: grey;
+}
+button{
+    padding: 1rem;
+    font-size: 1.5rem;
+}
+
+.answer{
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 2rem;
+}
+
+.char {
+    margin-right: 1em;
+    border-bottom: 4px solid black;
+    color: grey;
+}
+
